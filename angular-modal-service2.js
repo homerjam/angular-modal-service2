@@ -146,14 +146,15 @@
                             var controller = options.controller || function() {};
 
                             //  Pass inputs to scope.
-                            if (typeof controller === 'string' || !options.controllerAs) {
-                                modalScope = angular.extend(modalScope, options.inputs || {});
-
-                            } else {
-                                modalScope[options.controllerAs] = options.inputs || {};
-                            }
+                            modalScope = angular.extend(modalScope, options.inputs || {});
 
                             var modalController;
+
+                            //  If a 'controllerAs' option has been provided, make the inputs
+                            //  available on the scope under this name.
+                            if (options.controllerAs) {
+                                modalScope[options.controllerAs] = options.inputs || {};
+                            }
 
                             if (typeof controller === 'string' && options.controllerAs) {
                                 //  If a 'controllerAs' option has been provided, we change the controller
