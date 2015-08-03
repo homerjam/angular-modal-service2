@@ -143,23 +143,31 @@
 
                             //  TODO: resolve any promises in options.inputs
 
+                            var inputs = options.inputs || {};
+
                             var controller = options.controller || function() {};
 
                             //  Pass inputs to scope.
-                            modalScope = angular.extend(modalScope, options.inputs || {});
+                            modalScope = angular.extend(modalScope, inputs);
 
                             var modalController;
 
                             //  If a 'controllerAs' option has been provided, make the inputs
                             //  available on the scope under this name.
                             if (options.controllerAs) {
-                                modalScope[options.controllerAs] = options.inputs || {};
+                                modalScope[options.controllerAs] = inputs;
                             }
 
                             if (typeof controller === 'string' && options.controllerAs) {
                                 //  If a 'controllerAs' option has been provided, we change the controller
                                 //  name to use 'as' syntax. $controller will automatically handle this.
                                 controller = controller + ' as ' + options.controllerAs;
+                            }
+
+                            if (typeof controller === 'function' && Object.keys(inputs).length) {
+                                //  If controller has been defined in options then we manually inject
+                                //  inputs/dependencies for safe minification
+                                controller.$inject = Object.keys(inputs);
                             }
 
                             //  Create the controller, explicitly specifying the scope to use.
