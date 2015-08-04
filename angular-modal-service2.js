@@ -145,7 +145,7 @@
 
                             var inputs = options.inputs || {};
 
-                            var controller = options.controller || function() {};
+                            var controller = options.controller;
 
                             //  Pass inputs to scope.
                             modalScope = angular.extend(modalScope, inputs);
@@ -165,12 +165,19 @@
                             }
 
                             //  Create the controller, explicitly specifying the scope to use.
-                            modalController = $controller(controller, modalScope);
+                            modalController = $controller(controller || function() {}, modalScope);
 
-                            //  If a 'controllerAs' option has been provided, make the controller
-                            //  available on the scope under this name.
-                            if (typeof controller === 'function' && options.controllerAs) {
-                                modalScope[options.controllerAs] = modalController;
+                            if (options.controllerAs) {
+                                if (typeof controller === 'function') {
+                                    //  If a 'controllerAs' option has been provided, and a controller is
+                                    //  defined make the controller available on the scope under this name.
+                                    modalScope[options.controllerAs] = modalController;
+
+                                } else {
+                                    //  If no controller has been defined just pass the inputs to the
+                                    //  'controllerAs' variable on the scope
+                                    modalScope[options.controllerAs] = inputs;
+                                }
                             }
 
                             //  Parse the modal HTML into a DOM element (in template form).
