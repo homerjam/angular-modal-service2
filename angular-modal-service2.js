@@ -152,12 +152,6 @@
 
                             var modalController;
 
-                            //  If a 'controllerAs' option has been provided, make the inputs
-                            //  available on the scope under this name.
-                            if (options.controllerAs) {
-                                modalScope[options.controllerAs] = inputs;
-                            }
-
                             if (typeof controller === 'string' && options.controllerAs) {
                                 //  If a 'controllerAs' option has been provided, we change the controller
                                 //  name to use 'as' syntax. $controller will automatically handle this.
@@ -172,6 +166,12 @@
 
                             //  Create the controller, explicitly specifying the scope to use.
                             modalController = $controller(controller, modalScope);
+
+                            //  If a 'controllerAs' option has been provided, make the controller
+                            //  available on the scope under this name.
+                            if (typeof controller === 'function' && options.controllerAs) {
+                                modalScope[options.controllerAs] = modalController;
+                            }
 
                             //  Parse the modal HTML into a DOM element (in template form).
                             var modalElementTemplate = angular.element(template);
