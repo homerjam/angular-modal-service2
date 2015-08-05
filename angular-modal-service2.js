@@ -172,8 +172,9 @@
                                     //  If a 'controllerAs' option has been provided, and a controller is
                                     //  defined make the controller available on the scope under this name.
                                     modalScope[options.controllerAs] = modalController;
+                                }
 
-                                } else {
+                                if (!controller) {
                                     //  If no controller has been defined just pass the inputs to the
                                     //  'controllerAs' variable on the scope
                                     modalScope[options.controllerAs] = inputs;
