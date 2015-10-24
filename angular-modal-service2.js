@@ -158,10 +158,10 @@
                                 controller = controller + ' as ' + options.controllerAs;
                             }
 
-                            if (typeof controller === 'function' && Object.keys(inputs).length) {
+                            if (typeof controller === 'function') {
                                 //  If controller has been defined in options then we manually inject
                                 //  inputs/dependencies for safe minification
-                                controller.$inject = Object.keys(inputs);
+                                angular.injector.$$annotate(controller);
                             }
 
                             //  Create the controller, explicitly specifying the scope to use.
