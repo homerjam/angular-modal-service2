@@ -158,7 +158,7 @@
                 controller = controller + ' as ' + options.controllerAs;
               }
 
-              if (typeof controller !== 'function') {
+              if (typeof controller !== 'string') {
                 //  If controller has been defined in options then we manually inject
                 //  inputs/dependencies for safe minification
                 angular.injector.$$annotate(controller);
