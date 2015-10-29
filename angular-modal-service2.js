@@ -152,13 +152,13 @@
 
               var modalController;
 
-              if (typeof controller === 'string' && options.controllerAs) {
+              if (controller && typeof controller === 'string' && options.controllerAs) {
                 //  If a 'controllerAs' option has been provided, we change the controller
                 //  name to use 'as' syntax. $controller will automatically handle this.
                 controller = controller + ' as ' + options.controllerAs;
               }
 
-              if (typeof controller !== 'string') {
+              if (controller && typeof controller !== 'string') {
                 //  If controller has been defined in options then we manually inject
                 //  inputs/dependencies for safe minification
                 angular.injector.$$annotate(controller);
@@ -168,7 +168,7 @@
               modalController = $controller(controller || function() {}, modalScope);
 
               if (options.controllerAs) {
-                if (typeof controller !== 'string') {
+                if (controller && typeof controller !== 'string') {
                   //  If a 'controllerAs' option has been provided, and a controller is
                   //  defined make the controller available on the scope under this name.
                   modalScope[options.controllerAs] = modalController;
