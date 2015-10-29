@@ -9,9 +9,11 @@ bower install angular-modal-service2
 
 ```js
 // In your controller
+// note use of `@ngInject` flag for ng-annotate
+// which prevents minification problems
 ModalService.showModal({
     templateUrl: '/templates/modal.html',
-    controller: function($modal, data) {
+    controller: /*@ngInject*/ function($modal, data) {
         var ctrl = this;
 
         ctrl.data = data;
