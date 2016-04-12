@@ -1,8 +1,16 @@
 angular-modal-service2
 ======================
 
+Standalone AngularJS service for showing modals (using bootstrap)
+
+## Installation
+
 ```
-bower install angular-modal-service2
+$ npm i -D angular-modal-service2
+
+or
+
+$ bower install angular-modal-service2
 ```
 
 ## Usage

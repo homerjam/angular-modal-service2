@@ -1,26 +1,30 @@
 {
-    "name": "angular-modal-service2",
-    "version": "0.0.9",
-    "homepage": "https://github.com/homerjam/angular-modal-service2",
-    "authors": [
-        "James Homer (github.com/homerjam)"
-    ],
-    "description": "Standalone AngularJS service for showing modals",
-    "main": "angular-modal-service2.js",
-    "keywords": [
-        "angular",
-        "angularjs",
-        "modal",
-        "popup",
-        "service"
-    ],
-    "license": "MIT",
-    "ignore": [
-        "*",
-        "!README.md",
-        "!angular-modal-service2.js"
-    ],
-    "dependencies": {
-        "angular": ">=1.3.x"
-    }
+  "name": "angular-modal-service2",
+  "version": "0.0.10",
+  "homepage": "https://github.com/homerjam/angular-modal-service2",
+  "authors": [
+    "James Homer (github.com/homerjam)"
+  ],
+  "description": "Standalone AngularJS service for showing modals (using bootstrap)",
+  "main": "angular-modal-service2.js",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "modal",
+    "popup",
+    "service"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "!README.md",
+    "!angular-modal-service2.js",
+    "!angular-modal-service2.css"
+  ],
+  "dependencies": {
+    "angular": ">=1.3.0"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
 }

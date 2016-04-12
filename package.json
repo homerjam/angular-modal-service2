@@ -1,0 +1,20 @@
+{
+  "name": "angular-modal-service2",
+  "version": "0.0.10",
+  "description": "Standalone AngularJS service for showing modals (using bootstrap)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homerjam/angular-modal-service2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Homerjam <jameshomer85@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "angular": ">=1.3.0"
+  },
+  "devDependencies": {
+  }
+}
